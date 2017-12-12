@@ -1,0 +1,16 @@
+{
+  "name": "ethpeeker",
+  "version": "1.0.0",
+  "description": "Peeking Ethereum from Bithumb.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "kycfeel",
+  "license": "MIT",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.29.0",
+    "request": "^2.83.0"
+  }
+}
