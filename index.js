@@ -24,7 +24,7 @@ bot.onText(/\/ETH/, (msg) => {
 
 bot.sendMessage(msg.chat.id, "💰 이더리움(ETH) 메뉴입니다. 아래 버튼을 눌러주세요.💰```\n\n'/start' 버튼을 누르면 초기 화면으로 돌아갑니다.```", {
 "reply_markup": {
-    "keyboard": [['이더리움(ETH) 시세 확인'],['ETH 반복 시세 알리미', '정지'], ['/start']],
+    "keyboard": [['이더리움(ETH) 시세 확인'],/*['ETH 반복 시세 알리미', '정지'],*/ ['/start']],
   },
 parse_mode : "MarkDown",
   });
@@ -34,7 +34,7 @@ bot.onText(/\/BTC/, (msg) => {
 
 bot.sendMessage(msg.chat.id, "💰 비트코인(BTC) 메뉴입니다. 아래 버튼을 눌러주세요.💰```\n\n'/start' 버튼을 누르면 초기 화면으로 돌아갑니다.```", {
 "reply_markup": {
-    "keyboard": [['비트코인(BTC) 시세 확인'],['BTC 반복 시세 알리미', '정지'], ['/start']],
+    "keyboard": [['비트코인(BTC) 시세 확인'],/*['BTC 반복 시세 알리미', '정지'],*/ ['/start']],
   },
 parse_mode : "MarkDown",
   });
@@ -44,7 +44,7 @@ bot.onText(/\/XRP/, (msg) => {
 
 bot.sendMessage(msg.chat.id, "💰 리플(XRP) 메뉴입니다. 아래 버튼을 눌러주세요.💰```\n\n'/start' 버튼을 누르면 초기 화면으로 돌아갑니다.```", {
 "reply_markup": {
-    "keyboard": [['리플(XRP) 시세 확인'],['XRP 반복 시세 알리미', '정지'], ['/start']],
+    "keyboard": [['리플(XRP) 시세 확인'],/*['XRP 반복 시세 알리미', '정지'],*/ ['/start']],
     },
 parse_mode : "MarkDown",
   });
@@ -91,7 +91,7 @@ pushInterval = setInterval(()=> {
         bot.sendMessage(msg.chat.id, "😵 현재 빗썸 API 서비스를 사용할 수 없습니다. 5초 후 다시 시도합니다.😵");
       }
     })
-  }, 5000);
+  }, 30000);
 }
 
 bot.on('message', (msg) => {
@@ -107,7 +107,7 @@ bot.on('message', (msg) => {
 
   else if (msg.text === 'ETH 반복 시세 알리미') {
     console.log("Telegram Chat ID : " + msg.chat.id + " is now using ETH 반복 시세 알리미!");
-    bot.sendMessage(msg.chat.id, "5초 간격으로 실시간 이더리움 시세를 알려줍니다.\n\n정지를 누르면 알림을 멈출 수 있습니다. ```\n\n⚠️ 종종 '정지' 버튼을 눌러도 알리미가 멈추지 않는 문제가 발생할 수 있습니다. 이럴 경우 임시로 봇을 차단한 후 다시 추가해 주세요.⚠️```", {parse_mode : "MarkDown"});
+    bot.sendMessage(msg.chat.id, "30초 간격으로 실시간 이더리움 시세를 알려줍니다.\n\n정지를 누르면 알림을 멈출 수 있습니다. ```\n\n⚠️ 종종 '정지' 버튼을 눌러도 알리미가 멈추지 않는 문제가 발생할 수 있습니다. 이럴 경우 임시로 봇을 차단한 후 다시 추가해 주세요.⚠️```", {parse_mode : "MarkDown"});
     repeatCall('eth', msg);
   }
 
@@ -118,7 +118,7 @@ bot.on('message', (msg) => {
 
   else if (msg.text === 'BTC 반복 시세 알리미') {
     console.log("Telegram Chat ID : " + msg.chat.id + " is now using BTC 반복 시세 알리미!");
-    bot.sendMessage(msg.chat.id, "5초 간격으로 실시간 비트코인 시세를 알려줍니다.\n\n정지를 누르면 알림을 멈출 수 있습니다. ```\n\n⚠️ 종종 '정지' 버튼을 눌러도 알리미가 멈추지 않는 문제가 발생할 수 있습니다. 이럴 경우 임시로 봇을 차단한 후 나중에 다시 추가해 주세요.⚠️```", {parse_mode : "MarkDown"});
+    bot.sendMessage(msg.chat.id, "30초 간격으로 실시간 비트코인 시세를 알려줍니다.\n\n정지를 누르면 알림을 멈출 수 있습니다. ```\n\n⚠️ 종종 '정지' 버튼을 눌러도 알리미가 멈추지 않는 문제가 발생할 수 있습니다. 이럴 경우 임시로 봇을 차단한 후 나중에 다시 추가해 주세요.⚠️```", {parse_mode : "MarkDown"});
     repeatCall('btc', msg);
   }
 
@@ -129,7 +129,7 @@ bot.on('message', (msg) => {
 
   else if (msg.text === 'XRP 반복 시세 알리미') {
     console.log("Telegram Chat ID : " + msg.chat.id + " is now using XRP 반복 시세 알리미!");
-    bot.sendMessage(msg.chat.id, "5초 간격으로 실시간 리플 시세를 알려줍니다.\n\n정지를 누르면 알림을 멈출 수 있습니다. ```\n\n⚠️ 종종 '정지' 버튼을 눌러도 알리미가 멈추지 않는 문제가 발생할 수 있습니다. 이럴 경우 임시로 봇을 차단한 후 다시 추가해 주세요.⚠️```", {parse_mode : "MarkDown"});
+    bot.sendMessage(msg.chat.id, "30초 간격으로 실시간 리플 시세를 알려줍니다.\n\n정지를 누르면 알림을 멈출 수 있습니다. ```\n\n⚠️ 종종 '정지' 버튼을 눌러도 알리미가 멈추지 않는 문제가 발생할 수 있습니다. 이럴 경우 임시로 봇을 차단한 후 다시 추가해 주세요.⚠️```", {parse_mode : "MarkDown"});
     repeatCall('xrp', msg);
   }
 
