@@ -1,6 +1,6 @@
 {
   "name": "ethpeeker",
-  "version": "1.1.11",
+  "version": "1.2.0",
   "description": "Peeking cryptocurrency from Bithumb.",
   "main": "index.js",
   "scripts": {
