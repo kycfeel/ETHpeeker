@@ -1,0 +1,24 @@
+pipeline:
+  build:
+    image: golang:1.10.0-alpine
+    commands:
+      - export TIMESTAMP=$(date +%y%m%d%H%M --date='+ 9 hours')
+      - export PACKAGE_VERSION="1.12.0"
+  docker:
+    image: plugins/docker
+    secrets: [ hollaex_docker_username, hollaex_docker_password ]
+    repo: bitholla/hollaex
+    dockerfile: tools/pm2/Dockerfile.pm2
+    tags: ${PACKAGE_VERSION}-${DRONE_REPO_BRANCH}-${TIMESTAMP}
+  kubectl:
+    image: komljen/drone-kubectl-helm
+    secrets: [ kubernetes_server, kubernetes_cert, kubernetes_token ]
+    kubectl: "get pods"
+  helm:
+    image: komljen/drone-kubectl-helm
+    secrets: [ kubernetes_server, kubernetes_cert, kubernetes_token ]
+    helm: list
+  notify:
+    image: plugins/slack
+    channel: deployment
+    secrets: [ slack_webhook ]
